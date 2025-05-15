@@ -1,102 +1,147 @@
-# FocusTime Tracker Chrome Extension
+# FocusTime Tracker
 
-A Chrome Extension built with React that tracks how much time you spend on each website. It aggregates usage by domain and category, shows daily/weekly/monthly reports with comparative charts, and includes Pomodoro integration with notifications/reminders to promote focused work sessions.
+**FocusTime Tracker** is a modern Chrome Extension built with React and TypeScript that helps you track your time on websites, visualize your productivity, and stay focused using the Pomodoro technique. It features real-time tracking, customizable categories, a beautiful dashboard, and persistent settings.
+
+---
 
 ## Features
 
-- 🕒 **Web Time Tracking**
-  - Automatically tracks time spent on each domain
-  - Categorizes websites (Work, Social, Entertainment, etc.)
-  - Ignores background tabs and idle time
+- **Automatic Website Time Tracking**  
+  Tracks time spent on each website and categorizes them (Work, Social, Entertainment, etc.).
 
-- 📊 **Reports Dashboard**
-  - Daily, weekly, and monthly views
-  - Pie charts for category distribution
-  - Bar charts for domain usage
-  - Comparison with prior periods
+- **Dashboard & Reports**  
+  Visualize your productivity with daily, weekly, and monthly charts and summaries.
 
-- ⏱️ **Pomodoro Timer**
-  - Configurable work and break intervals
-  - Session tracking
-  - Desktop notifications
-  - Auto-start options
+- **Pomodoro Timer**  
+  Built-in Pomodoro timer with customizable durations, auto-start options, and notifications.
 
-- ⚙️ **Customization**
-  - Dark/light theme
-  - Custom category mappings
-  - Domain exclusions
-  - Pomodoro settings
+- **Custom Categories & Exclusions**  
+  Map domains to custom categories and exclude specific sites from tracking.
 
-## Development Setup
+- **Theme Support**  
+  Light and dark mode with persistent theme preference.
 
-1. **Prerequisites**
-   - Node.js (v16 or later)
-   - npm or yarn
-   - Chrome browser
+- **Settings Sync**  
+  All settings are saved and loaded automatically.
 
-2. **Installation**
+---
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- [npm](https://www.npmjs.com/) (v8+ recommended)
+- [Google Chrome](https://www.google.com/chrome/)
+
+### Installation
+
+1. **Clone the repository:**
    ```bash
-   # Clone the repository
-   git clone https://github.com/yourusername/chrome-time-tracker.git
-   cd chrome-time-tracker
+   git clone https://github.com/rhazra-003/FocusTime_Tracker.git
+   cd focustime-tracker
+   ```
 
-   # Install dependencies
+2. **Install dependencies:**
+   ```bash
    npm install
-   # or
-   yarn install
    ```
 
-3. **Development**
+3. **Generate icons (if you change the SVG):**
    ```bash
-   # Start the development server
-   npm run dev
-   # or
-   yarn dev
+   npm run generate-icons
    ```
 
-4. **Load the Extension in Chrome**
-   - Open Chrome and go to `chrome://extensions/`
-   - Enable "Developer mode" in the top right
-   - Click "Load unpacked" and select the `dist` directory
+4. **Build the extension:**
+   ```bash
+   npm run build
+   ```
 
-## Building for Production
+5. **Load the extension in Chrome:**
+   - Open `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked"
+   - Select the `dist` folder in your project
 
-```bash
-# Build the extension
-npm run build
-# or
-yarn build
-```
+---
 
-The built extension will be in the `dist` directory.
+## Development
+
+- **Start development server (for React pages):**
+  ```bash
+  npm run dev
+  ```
+  > Note: For Chrome Extensions, you still need to build and reload the extension in Chrome to see background/content script changes.
+
+- **Lint and format code:**
+  ```bash
+  npm run lint
+  ```
+
+- **Build for production:**
+  ```bash
+  npm run build
+  ```
+
+---
 
 ## Project Structure
 
 ```
-chrome-time-tracker/
+.
+├── public/
+│   └── icons/           # SVG and PNG icons
 ├── src/
-│   ├── background/     # Background service worker
-│   ├── components/     # React components
-│   ├── contexts/       # React contexts
-│   ├── pages/         # Page components
-│   ├── types/         # TypeScript types
-│   ├── utils/         # Utility functions
-│   ├── App.tsx        # Main app component
-│   └── main.tsx       # Entry point
-├── public/            # Static assets
-├── manifest.json      # Extension manifest
-└── package.json       # Project configuration
+│   ├── background/      # Background scripts (time tracking, pomodoro logic)
+│   ├── components/      # Reusable React components
+│   ├── contexts/        # React context providers (e.g., Theme)
+│   ├── pages/           # Main pages: Dashboard, Pomodoro, Settings
+│   ├── utils/           # Utility functions (storage, helpers)
+│   ├── types/           # TypeScript type definitions
+│   └── index.css        # Tailwind CSS entry
+├── scripts/             # Build and asset scripts (icon generation, copy assets)
+├── dist/                # Build output (after `npm run build`)
+├── manifest.json        # Chrome Extension manifest
+├── vite.config.ts       # Vite configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
+└── package.json
 ```
+
+---
+
+## Customization
+
+- **Change Pomodoro durations, auto-start, and session settings in the Settings page.**
+- **Map websites to categories or exclude them from tracking.**
+- **Switch between light and dark mode.**
+
+---
 
 ## Contributing
 
+Contributions are welcome! Please open issues or pull requests for bug fixes, features, or improvements.
+
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+2. Create your feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a pull request
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-# FocusTime_Tracker
+[MIT](LICENSE)
+
+---
+
+## Credits
+
+- Built with [React](https://react.dev/), [Vite](https://vitejs.dev/), [Tailwind CSS](https://tailwindcss.com/), and [TypeScript](https://www.typescriptlang.org/).
+- Charting by [Recharts](https://recharts.org/).
+- Icon generation via [svgexport](https://github.com/shakiba/svgexport) and [sharp](https://sharp.pixelplumbing.com/).
+
+---
+
+**Happy focusing! 🚀**
